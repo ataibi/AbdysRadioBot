@@ -18,9 +18,13 @@ console.log(songs);
 const pickAndPlay = (player) => {
     let songIndex = Math.round(Math.random() * songs.length - 1)
     let chosenSong = songs[songIndex];
-    const resource = createAudioResource(chosenSong, { inlineVolume: true });
+    if (chosenSong) {
+        const resource = createAudioResource(chosenSong, { inlineVolume: true });
+    } else {
+        return pickAndPlay(player);
+    }
     resource.volume.setVolume(0.5)
-    player.play(resource);
+    return player.play(resource);
 }
 
 let hasAnswered = 0;
