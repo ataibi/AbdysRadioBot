@@ -1,11 +1,24 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { createReadStream } = require('node:fs');
 const { joinVoiceChannel, VoiceConnectionStatus, AudioPlayerStatus, entersState, createAudioPlayer, NoSubscriberBehavior, createAudioResource, StreamType  } = require('@discordjs/voice');
+const fs = require('node:fs');
+const foldersPath = path.join(__dirname, 'songs');
+const songsFolder = fs.readdirSync(foldersPath);
+let songs = [];
 
-const songs = ['close.mp3', 'closest.mp3'];
+for (const folder of songsFolder) {
+	const songsPath = path.join(foldersPath, folder);
+	const songsFiles = fs.readdirSync(songsPath).filter(file => file.endsWith('.mp3'));
+	songsFiles.forEach(file => {
+        const songPath = path.join(songsPath, file)
+        songs.push(songPath);
+    });
+}
+console.log(songs);
 
 const pickAndPlay = (player) => {
-    let chosenSong = `./songs/${songs[Math.round(Math.random() * 1)]}`
+    let songIndex = Math.round(Math.random() * songs.length - 1)
+    let chosenSong = songs[songIndex];
     const resource = createAudioResource(chosenSong, { inlineVolume: true });
     resource.volume.setVolume(0.5)
     player.play(resource);
