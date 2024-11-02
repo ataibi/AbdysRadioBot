@@ -20,11 +20,11 @@ const pickAndPlay = (player) => {
     let chosenSong = songs[songIndex];
     if (chosenSong != undefined) {
         const resource = createAudioResource(chosenSong, { inlineVolume: true });
+        resource.volume.setVolume(0.5)
+        return player.play(resource);
     } else {
         return pickAndPlay(player);
     }
-    resource.volume.setVolume(0.5)
-    return player.play(resource);
 }
 
 let hasAnswered = 0;
