@@ -2,6 +2,8 @@ const { SlashCommandBuilder } = require('discord.js');
 const { createReadStream } = require('node:fs');
 const { joinVoiceChannel, VoiceConnectionStatus, AudioPlayerStatus, entersState, createAudioPlayer, NoSubscriberBehavior, createAudioResource, StreamType  } = require('@discordjs/voice');
 const fs = require('node:fs');
+const path = require('node:path');
+
 const foldersPath = path.join(__dirname, 'songs');
 const songsFolder = fs.readdirSync(foldersPath);
 let songs = [];
