@@ -1,0 +1,28 @@
+{
+  "name": "arby",
+  "version": "1.0.0",
+  "description": "Discord bot that randomly plays my songs, with long intervals of silence between them",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ataibi/AbdysRadioBot.git"
+  },
+  "author": "ataibi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ataibi/AbdysRadioBot/issues"
+  },
+  "homepage": "https://github.com/ataibi/AbdysRadioBot#readme",
+  "dependencies": {
+    "@discordjs/voice": "^0.17.0",
+    "discord.js": "^14.16.3",
+    "libsodium-wrappers": "^0.7.15",
+    "opusscript": "^0.0.8"
+  },
+  "devDependencies": {
+    "eslint": "^9.14.0"
+  }
+}
