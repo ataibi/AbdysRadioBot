@@ -23,6 +23,7 @@ const pickAndPlay = (player) => {
     player.play(resource);
 }
 
+let hasAnswered = 0;
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -55,7 +56,10 @@ module.exports = {
             setTimeout(() => {
                 pickAndPlay(player);
                 const subscription = connection.subscribe(player);
-                interaction.reply("et c'est parti !", {ephemeral:true})
+                if (hasAnswered == 0){
+                    interaction.reply("et c'est parti !", {ephemeral:true});
+                    hasAnswered = 1;
+                }
             }, 100)
         });
 
