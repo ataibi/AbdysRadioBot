@@ -4,18 +4,15 @@ const { joinVoiceChannel, VoiceConnectionStatus, AudioPlayerStatus, entersState,
 const fs = require('node:fs');
 const path = require('node:path');
 
-const foldersPath = path.join(__dirname, '/../../songs');
-const songsFolder = fs.readdirSync(foldersPath);
+const songsPath = path.join(__dirname, '/../../songs');
 let songs = [];
 
-for (const folder of songsFolder) {
-	const songsPath = path.join(foldersPath, folder);
-	const songsFiles = fs.readdirSync(songsPath).filter(file => file.endsWith('.mp3'));
-	songsFiles.forEach(file => {
-        const songPath = path.join(songsPath, file)
-        songs.push(songPath);
-    });
-}
+const songsFiles = fs.readdirSync(songsPath).filter(file => file.endsWith('.mp3'));
+songsFiles.forEach(file => {
+    const songPath = path.join(songsPath, file)
+    songs.push(songPath);
+});
+
 console.log(songs);
 
 const pickAndPlay = (player) => {
