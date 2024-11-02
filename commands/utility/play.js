@@ -4,7 +4,7 @@ const { joinVoiceChannel, VoiceConnectionStatus, AudioPlayerStatus, entersState,
 const fs = require('node:fs');
 const path = require('node:path');
 
-const foldersPath = path.join(__dirname, 'songs');
+const foldersPath = path.join(__dirname, '/../../songs');
 const songsFolder = fs.readdirSync(foldersPath);
 let songs = [];
 
