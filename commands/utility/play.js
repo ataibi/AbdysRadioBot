@@ -18,7 +18,7 @@ console.log(songs);
 const pickAndPlay = (player) => {
     let songIndex = Math.round(Math.random() * songs.length - 1)
     let chosenSong = songs[songIndex];
-    if (chosenSong) {
+    if (chosenSong != undefined) {
         const resource = createAudioResource(chosenSong, { inlineVolume: true });
     } else {
         return pickAndPlay(player);
