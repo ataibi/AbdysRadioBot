@@ -4,26 +4,16 @@ const { joinVoiceChannel, VoiceConnectionStatus, AudioPlayerStatus, entersState,
 const fs = require('node:fs');
 const path = require('node:path');
 
-const songsPath = path.join(__dirname, '/../../songs');
-let songs = [];
-
-const songsFiles = fs.readdirSync(songsPath).filter(file => file.endsWith('.mp3'));
-songsFiles.forEach(file => {
-    const songPath = path.join(songsPath, file)
-    songs.push(songPath);
-});
-
-console.log(songs);
-
-const pickAndPlay = (player) => {
-    let songIndex = Math.round(Math.random() * songs.length - 1)
-    let chosenSong = songs[songIndex];
+const pickAndPlay = (player, client) => {
+    let songIndex = Math.ceil(Math.random() * client.songs.size - 1)
+    let chosenSong = client.songs.get(songIndex);
+    client.nowPlaying = chosenSong
     if (chosenSong != undefined) {
-        const resource = createAudioResource(chosenSong, { inlineVolume: true });
+        const resource = createAudioResource(chosenSong.path, { inlineVolume: true });
         resource.volume.setVolume(0.5)
         return player.play(resource);
     } else {
-        return pickAndPlay(player);
+        return pickAndPlay(player, client);
     }
 }
 
@@ -34,6 +24,7 @@ module.exports = {
 		.setName('play')
 		.setDescription('Play the radio!'),
 	async execute(interaction) {
+        const client = interaction.client;
         if (!interaction.member.voice.channel) {
             return await interaction.reply({ content: 'You need to enter a voice channel before use the command', ephemeral: true })
         }
@@ -49,16 +40,17 @@ module.exports = {
             selfMute: false 
         });
 
-        const player = createAudioPlayer({
+        client.player = createAudioPlayer({
             behaviors: {
                 noSubscriber: NoSubscriberBehavior.Pause,
             },
         });
+        const player = client.player
 
         connection.on(VoiceConnectionStatus.Ready, (oldState, newState) => {
             console.log('Connection is in the Ready state!');
             setTimeout(() => {
-                pickAndPlay(player);
+                pickAndPlay(player, client);
                 const subscription = connection.subscribe(player);
                 if (hasAnswered == 0){
                     interaction.reply("et c'est parti !", {ephemeral:true});
@@ -74,14 +66,14 @@ module.exports = {
         
         
         player.on(AudioPlayerStatus.Playing, (oldState, newState) => {
-            console.log('Audio player is in the Playing state!');
+            console.log(`Now playing ${client.nowPlaying.title}`);
         });
 
         player.on(AudioPlayerStatus.Idle, (oldState, newState) => {
             if (oldState.status == "playing") {
                 const interval = Math.round(Math.random() * (15 - 2) + 2);
                 console.log(`just finished playing, next one in ${interval} minutes`);
-                setTimeout(() => {pickAndPlay(player)}, interval * 60 * 1000);
+                setTimeout(() => {pickAndPlay(player, client)}, interval * 60 * 1000);
             }
         })
 
