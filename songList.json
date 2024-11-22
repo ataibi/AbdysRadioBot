@@ -1,0 +1,109 @@
+{
+    "songs": [
+        {
+            "title": "A Walk In The Park",
+            "props": {
+                "path": "./songs/A walk in the park.mp3",
+                "duration": 315,
+                "tags": [
+                    "chill"
+                ]
+            }
+        },
+        {
+            "title": "Agressive Crossing",
+            "props": {
+                "path": "./songs/Agressive Crossing.mp3",
+                "duration": 280,
+                "tags": [
+                    "chill"
+                ]
+            }
+        },
+        {
+            "title": "Animal Beats",
+            "props": {
+                "path": "./songs/animal beats.mp3",
+                "duration": 314,
+                "tags": [
+                    "chill"
+                ]
+            }
+        },
+        {
+            "title": "Bouncy Castle",
+            "props": {
+                "path": "./songs/Bouncy Castle.mp3",
+                "duration": 75,
+                "tags": [
+                    "chill"
+                ]
+            }
+        },
+        {
+            "title": "Chilly Vibe",
+            "props": {
+                "path": "./songs/Chilly Vibe.mp3",
+                "duration": 264,
+                "tags": [
+                    "chill"
+                ]
+            }
+        },
+        {
+            "title": "DD La Glisse",
+            "props": {
+                "path": "./songs/DD la glisse.mp3",
+                "duration": 232,
+                "tags": [
+                    "chill"
+                ]
+            }
+        },
+        {
+            "title": "Ethereal",
+            "props": {
+                "path": "./songs/Ethereal clean version.mp3",
+                "duration": 204,
+                "tags": [
+                    "chill"
+                ]
+            }
+        },
+        {
+            "title": "Melancholy Factory",
+            "props": {
+                "path": "./songs/Melancholy Factory.mp3",
+                "duration": 151,
+                "tags": [
+                    "chill"
+                ]
+            }
+        },
+        {
+            "title": "Sleep",
+            "props": {
+                "path": "./songs/sleep.mp3",
+                "duration": 484,
+                "tags": [
+                    "chill",
+                    "ambiant"
+                ]
+            }
+        },
+        {
+            "title": "Sunny Afternoon",
+            "props": {
+                "path": "./songs/sunny afternoon.mp3",
+                "duration": 269,
+                "tags": [
+                    "chill"
+                ]
+            }
+        }
+    ],
+    "tags": [
+        "Ambiant",
+        "Chill"
+    ]
+}

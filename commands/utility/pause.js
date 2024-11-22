@@ -12,18 +12,20 @@ module.exports = {
 	async execute(interaction) {
         const client = interaction.client;
         const connection = getVoiceConnection(interaction.member.voice.channel.guild.id);
+        const guild = interaction.member.voice.channel.guild;
+        const player = client.players[guild.id];
         if (!interaction.member.voice.channel) {
             return await interaction.reply({ content: 'You need to enter a voice channel before use the command', ephemeral: true })
         }
-        if (!connection || !client.player) {
+        if (!connection || !player) {
             return await interaction.reply({ content: 'The bot is not connected to your voice channel', ephemeral: true })
         }
-        console.log(client.player)
-        if (client.player.state.status ==  'playing') {
-            client.player.pause();
+        console.log(player)
+        if (player.state.status ==  'playing') {
+            player.pause();
             return await interaction.reply({ content: 'Paused', ephemeral: true })
-        } else if (client.player.state.status == 'paused' || client.player.state.status == 'autopaused') {
-            client.player.unpause();
+        } else if (player.state.status == 'paused' || player.state.status == 'autopaused') {
+            player.unpause();
             return await interaction.reply({ content: 'Resumed playback', ephemeral: true })
         }
 

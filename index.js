@@ -38,7 +38,10 @@ songsFiles.forEach(file => {
 	});
 });
 client.nowPlaying = '';
-
+client.players = [];
+client.modes = [];
+client.tags = [];
+client.timeOuts = [];
 
 for (const folder of commandFolders) {
 	const commandsPath = path.join(foldersPath, folder);
