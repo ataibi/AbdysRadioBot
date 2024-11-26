@@ -230,7 +230,7 @@ module.exports = {
                 if (interaction.options.getSubcommand() === "pick") {
     
                     const song = songList.songs.find(song => song.title === interaction.options.getString('name'));
-                    console.log(`playing ${songName}`);
+                    console.log(`playing ${song.title}`);
                     playSong(player, client, guild, song);
     
                 } else if (interaction.options.getSubcommand() === "genre") {
