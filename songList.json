@@ -110,6 +110,36 @@
                     "chill"
                 ]
             }
+        },
+        {
+            "title": "Dark Forest",
+            "props": {
+                "path": "./songs/dark forest.mp3",
+                "duration": 222,
+                "tags": [
+                    "roleplaying", "tensed", "ambiant"
+                ]
+            }
+        },
+        {
+            "title": "Elfic Wilds",
+            "props": {
+                "path": "./songs/elfic wilds.mp3",
+                "duration": 174,
+                "tags": [
+                    "roleplaying", "chill", "ambiant"
+                ]
+            }
+        },
+        {
+            "title": "Sacrifices",
+            "props": {
+                "path": "./songs/Sacrifices.mp3",
+                "duration": 182,
+                "tags": [
+                    "roleplaying", "epic", "tensed"
+                ]
+            }
         }
     ],
     "tags": [
