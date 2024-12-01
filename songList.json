@@ -140,6 +140,26 @@
                     "roleplaying", "epic", "tensed"
                 ]
             }
+        },
+        {
+            "title": "Character Selection Screen",
+            "props": {
+                "path": "./songs/character select screen.mp3",
+                "duration": 237,
+                "tags": [
+                    "roleplaying", "tensed", "epic"
+                ]
+            }
+        },
+        {
+            "title": "A Glitch In The Kingdom",
+            "props": {
+                "path": "./songs/a glitch in the kingdom.mp3",
+                "duration": 143,
+                "tags": [
+                    "roleplaying", "tensed", "epic"
+                ]
+            }
         }
     ],
     "tags": [
